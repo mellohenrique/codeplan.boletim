@@ -4,12 +4,12 @@
 \alias{limpa_base_min_saude}
 \title{Limpa os dados do ministerio da saude para o formato utilizado pelo boletim}
 \usage{
-limpa_base_min_saude(dados, produto_dt = TRUE)
+limpa_base_min_saude(dados, produto_dt = FALSE)
 }
 \arguments{
 \item{dados}{base dados carregada do ministerio da saude a ser lida}
 
-\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE)}
+\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }
 \value{
 Um data.frame com os dados do ministério da saúde de COVID 19
