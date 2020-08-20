@@ -4,10 +4,13 @@
 \alias{baixa_min_saude}
 \title{Baixa dados do ministério da saúde}
 \usage{
-baixa_min_saude()
+baixa_min_saude(local = "dados/")
+}
+\arguments{
+\item{local}{local para salvar a base da dados obtida do ministerio da saude, padrao e salvar para a pasta "dados" do diretorio atual}
 }
 \value{
-Um data.frame com os dados do ministério da saúde de COVID 19
+Um arquivo com os dados do ministério da saúde de COVID 19
 }
 \description{
 Função que baixa os dados do ministério da saúde
