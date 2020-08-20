@@ -7,6 +7,10 @@
 #'
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19
 #'
+#' @import data.table
+#'
+#' @export
+#'
 #' @examples
 #'
 #'

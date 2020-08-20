@@ -6,6 +6,8 @@
 #'
 #' @return Um arquivo com os dados do ministério da saúde de COVID 19
 #'
+#' @export
+#'
 #' @examples
 #'
 
