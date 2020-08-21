@@ -16,7 +16,7 @@
 
 classifica_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
 
-  dados = as.data.table(dados_brutos)
+  dados = as.data.table(dados)
 
   dados[estado != "Brasil", `:=` (
     rank_obitos = rank(-obitosAcumulado, ties.method = "min"),
