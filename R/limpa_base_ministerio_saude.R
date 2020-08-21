@@ -20,7 +20,7 @@ limpa_base_min_saude <- function(dados, produto_dt = FALSE){
 
   dados <- data.table(dados)
 
-  dados <- dados[is.na(codmun) & regiao != "Brasil", .(data, estado, casosAcumulado, obitosAcumulado)]
+  dados = dados[is.na(codmun) & regiao != "Brasil", .(data, estado, casosAcumulado, obitosAcumulado)]
 
   setnames(dados, names(dados), c("date", "state", "confirmed", "deaths"))
 
