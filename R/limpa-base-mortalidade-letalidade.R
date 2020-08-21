@@ -13,7 +13,6 @@
 #'
 #' @examples
 #'
-#'
 
 
 limpa_base_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
