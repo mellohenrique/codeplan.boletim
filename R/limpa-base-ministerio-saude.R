@@ -29,9 +29,5 @@ limpa_base_min_saude <- function(dados, produto_dt = FALSE){
   dados[, `:=`(dia_centesimo_caso = cumsum(confirmed >= 100),
            dia_centesima_morte = cumsum(deaths >= 100)), by = state]
 
-  if(produto_dt) {
-    dados
-  } else {
-    as.data.frame(dados)
-  }
+  retorna_dt_df(dados, produto_dt = produto_dt)
 }

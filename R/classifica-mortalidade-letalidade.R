@@ -26,9 +26,6 @@ classifica_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
     rank_casos_novos = rank(-casosNovos, ties.method = "min"),
     rank_casos_dens = rank(-`casos_100k`, ties.method = "min"))]
 
-  if(produto_dt) {
-    dados
-  } else {
-    as.data.frame(dados)
-  }
+
+  retorna_dt_df(dados, produto_dt = produto_dt)
 }

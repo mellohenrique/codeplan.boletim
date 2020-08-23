@@ -2,7 +2,9 @@
 
 export(baixa_min_saude)
 export(classifica_mortalidade_letalidade)
+export(gera_produto)
 export(le_dados_ministerio_saude)
 export(limpa_base_min_saude)
 export(limpa_base_mortalidade_letalidade)
+export(retorna_dt_df)
 import(data.table)

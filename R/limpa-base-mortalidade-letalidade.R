@@ -26,9 +26,6 @@ limpa_base_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
            mortalidade = 100000 * obitosAcumulado/populacaoTCU2019,
            casos_100k = 100000 * casosAcumulado/populacaoTCU2019)]
 
-  if(produto_dt) {
-    dados
-  } else {
-    as.data.frame(dados)
-  }
+
+  retorna_dt_df(dados, produto_dt = produto_dt)
 }
