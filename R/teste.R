@@ -1,0 +1,26 @@
+#' Base de teste para o pacote
+#'
+#' Uma base de dados para testar as funcoes do pacote
+#'
+#' @format Uma tabela com 17 colunas e 1300 linhas.
+#' \describe{
+#'   \item{regiao}{Variavel em caractere com a regiao do Brasil da localidade}
+#'   \item{estado}{Variavel em caractere com o estado da localidade}
+#'   \item{municipio}{Variavel em caractere com o municipio da localidade}
+#'   \item{coduf}{Variavel numerica com o codigo do estado}
+#'   \item{codmun}{Variavel numerica com o codigo do municipio}
+#'   \item{codRegiaoSaude}{Variavel numerica com o codigo da regiao de saude}
+#'   \item{nomeRegiaoSaude}{Variavel em caractere com o nome da regiao de saude da localidade}
+#'   \item{data}{Variavel em data tempo com a data dos dados}
+#'   \item{semanaEpi}{Variavel numerica com o numero da semana epidemiologica dos dados}
+#'   \item{populacaoTCU2019}{Variavel numerica com o numero de pessoas na localidade segundo o TCU para o ano de 2019}
+#'   \item{casosAcumulado}{Variavel numerica com o numero de casos acumulados para a localidade em uma determinada data}
+#'   \item{casosNovos}{Variavel numerica com o numero de casos novos (do dia) para a localidade em uma determinada data}
+#'   \item{obitosAcumulado}{Variavel numerica com o numero de obitos acumulados para a localidade em uma determinada data}
+#'   \item{obitosNovos}{Variavel numerica com o numero de obitos novos (do dia) para a localidade em uma determinada data}
+#'   \item{Recuperadosnovos}{Variavel numerica com o numero de novas pessoas recuperadas}
+#'   \item{emAcompanhamentoNovos}{Variavel numerica com o numero de novos casos em acompanhamento}
+#'   \item{`interior/metropolitana`}{Variavel logica que descreve se a area e metropolitana ou do interior}
+#' }
+#' @source Tabela Criada
+"teste"
