@@ -1,7 +1,7 @@
 Package: codeplan.boletim
 Type: Package
 Title: Gerador dos dados do Boletim da Codeplan
-Version: 0.1.5
+Version: 0.1.6
 Author: Henrique de Mello Santos de Assunção
 Maintainer: Henrique de Mello Santos de Assunção <henrique.mello1992@gmail.com>
 Description: Pacote para automatizar o processo de geração do boletim Codeplan.
@@ -10,5 +10,5 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     tinytest (>= 1.2.2)
-Imports: data.table(>= 1.12.8), httr(>= 1.4.1), stringr(>= 1.4.0)
+Imports: data.table(>= 1.12.8), httr(>= 1.4.1), stringr(>= 1.4.0), readr(>= 1.3.1)
 RoxygenNote: 7.1.0
