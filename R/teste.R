@@ -22,5 +22,5 @@
 #'   \item{emAcompanhamentoNovos}{Variavel numerica com o numero de novos casos em acompanhamento}
 #'   \item{`interior/metropolitana`}{Variavel logica que descreve se a area e metropolitana ou do interior}
 #' }
-#' @source Tabela Criada
+#' @source Tabela Criada com base nos dados do ministerio da Saude
 "teste"

@@ -27,7 +27,7 @@ Uma tabela com 17 colunas e 1300 linhas.
 }
 }
 \source{
-Tabela Criada
+Tabela Criada com base nos dados do ministerio da Saude
 }
 \usage{
 teste
