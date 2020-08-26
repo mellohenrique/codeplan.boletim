@@ -17,7 +17,7 @@
 
 limpa_base_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
 
-  dados = as.data.table(dados_brutos)
+  dados = as.data.table(dados)
 
   dados = dados[data == max(data) & is.na(codmun), .(data, populacaoTCU2019, estado, casosAcumulado, obitosAcumulado, casosNovos)]
 

@@ -11,7 +11,6 @@
 #' @examples
 #'
 
-
 gera_produto <- function(local = "dados/", local_resultados = "produto/", produto_dt = FALSE, data_dados = NULL, prefixo = NULL){
 
   if(is.null(data_dados)){
