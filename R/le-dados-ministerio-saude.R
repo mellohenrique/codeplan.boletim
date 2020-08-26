@@ -12,7 +12,6 @@
 #' @examples
 #'
 
-
 le_dados_ministerio_saude <- function(local = "dados/", data_dados = NULL){
 
   try(if(!is.character(local)) {stop(("Defina um local como character"))})

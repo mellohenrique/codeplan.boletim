@@ -7,7 +7,7 @@
 retorna_dt_df(dados, produto_dt)
 }
 \arguments{
-\item{dados}{data.table}
+\item{dados}{Um objeto da classe data.table}
 
 \item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }

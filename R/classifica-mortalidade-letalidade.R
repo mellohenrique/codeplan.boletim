@@ -2,8 +2,8 @@
 #'
 #' @description Funcao que recebe os dados de mortalidade e letalidade no formato do boletim e gera a classificao dos estados em diferentes informacoes a cerca da pandemia do COVID-19
 #'
-#' @param dados base dados no formato mortalidade letalidade
-#' @param produto_dt variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE
+#' @inheritParams limpa_base_mortalidade_letalidade
+#' @param dados_mor_let base dados no formato mortalidade letalidade
 #'
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19
 #'
@@ -14,11 +14,11 @@
 #' @examples
 #'
 
-classifica_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
+classifica_mortalidade_letalidade <- function(dados_mor_let, produto_dt = FALSE){
 
-  dados = as.data.table(dados)
+  dados_mor_let = as.data.table(dados)
 
-  dados[estado != "Brasil", `:=` (
+  dados_mor_let[estado != "Brasil", `:=` (
     rank_obitos = rank(-obitosAcumulado, ties.method = "min"),
     rank_mortalidade = rank(-mortalidade, ties.method = "min"),
     rank_letalidade = rank(-letalidade, ties.method = "min"),
@@ -27,5 +27,5 @@ classifica_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
     rank_casos_dens = rank(-`casos_100k`, ties.method = "min"))]
 
 
-  retorna_dt_df(dados, produto_dt = produto_dt)
+  retorna_dt_df(dados_mor_let, produto_dt = produto_dt)
 }

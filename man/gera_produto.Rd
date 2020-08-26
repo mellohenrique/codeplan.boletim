@@ -13,7 +13,9 @@ gera_produto(
 )
 }
 \arguments{
-\item{local}{local para salvar a base da dados obtida do ministerio da saude, padrao e salvar para a pasta "dados" do diretorio atual}
+\item{local}{especifica local do qual carregar a base da dados obtida do ministerio da saude, padrao e carregar a partir da pasta "dados" do diretorio atual}
+
+\item{data_dados}{especifica de que data os dados devem ser carregados, o padrao e ler a ultima base disponivel}
 }
 \value{
 Um arquivo com os dados do ministério da saúde de COVID 19

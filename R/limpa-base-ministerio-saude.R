@@ -2,8 +2,7 @@
 #'
 #' @description Recebe os dados no formato utilizado pelo ministerio da saude e limpa eles para o formato usado pelo boletim da codeplan
 #'
-#' @param dados base dados carregada do ministerio da saude a ser lida
-#' @param produto_dt variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE
+#' @inheritParams limpa_base_mortalidade_letalidade
 #'
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19
 #'

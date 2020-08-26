@@ -7,7 +7,7 @@
 desenha_crescimento_semana(dados_uf)
 }
 \arguments{
-\item{dados}{base dados no formato UF do boletim da codeplan}
+\item{dados_uf}{Dados do ministerio da saude por UF limpos}
 }
 \value{
 Um grafico de crscimento semanal usado no boletim semanal da codeplan

@@ -4,10 +4,10 @@
 \alias{classifica_mortalidade_letalidade}
 \title{Classificador dos estados}
 \usage{
-classifica_mortalidade_letalidade(dados, produto_dt = FALSE)
+classifica_mortalidade_letalidade(dados_mor_let, produto_dt = FALSE)
 }
 \arguments{
-\item{dados}{base dados no formato mortalidade letalidade}
+\item{dados_mor_let}{base dados no formato mortalidade letalidade}
 
 \item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }

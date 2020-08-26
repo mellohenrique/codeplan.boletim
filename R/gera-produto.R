@@ -2,7 +2,7 @@
 #'
 #' @description Função que baixa os dados do ministério da saúde
 #'
-#' @param  local local para salvar a base da dados obtida do ministerio da saude, padrao e salvar para a pasta "dados" do diretorio atual
+#' @inheritParams le_dados_ministerio_saude
 #'
 #' @return Um arquivo com os dados do ministério da saúde de COVID 19
 #'
