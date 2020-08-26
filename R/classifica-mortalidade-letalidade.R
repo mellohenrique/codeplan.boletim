@@ -2,7 +2,7 @@
 #'
 #' @description Funcao que recebe os dados de mortalidade e letalidade no formato do boletim e gera a classificao dos estados em diferentes informacoes a cerca da pandemia do COVID-19
 #'
-#' @inheritParams limpa_base_mortalidade_letalidade
+#' @inheritParams limpa_mortalidade_letalidade
 #' @param dados_mor_let base dados no formato mortalidade letalidade
 #'
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19

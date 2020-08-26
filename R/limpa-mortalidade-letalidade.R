@@ -15,7 +15,7 @@
 #' @examples
 #'
 
-limpa_base_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
+limpa_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
 
   dados = as.data.table(dados)
 

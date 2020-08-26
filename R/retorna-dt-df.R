@@ -3,7 +3,7 @@
 #' @description Recebe um data.table e determina se transforma em data.frame ou continua dt
 #'
 #' @param dados Um objeto da classe data.table
-#' @inheritParams limpa_base_mortalidade_letalidade
+#' @inheritParams limpa_mortalidade_letalidade
 #'
 #' @return Um data.frame ou data.table
 #'

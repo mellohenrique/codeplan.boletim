@@ -2,7 +2,7 @@
 #'
 #' @description Função que baixa os dados do ministério da saúde
 #'
-#' @inheritParams limpa_base_mortalidade_letalidade
+#' @inheritParams limpa_mortalidade_letalidade
 #' @param dados_uf Dados do ministerio da saude por UF limpos
 #'
 #' @return Um arquivo com os dados dde casos e obitos por semana do ministério da saúde de COVID 19

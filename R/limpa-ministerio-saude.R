@@ -2,7 +2,7 @@
 #'
 #' @description Recebe os dados no formato utilizado pelo ministerio da saude e limpa eles para o formato usado pelo boletim da codeplan
 #'
-#' @inheritParams limpa_base_mortalidade_letalidade
+#' @inheritParams limpa_mortalidade_letalidade
 #'
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19
 #'
@@ -15,7 +15,7 @@
 #'
 
 
-limpa_base_min_saude <- function(dados, produto_dt = FALSE){
+limpa_min_saude <- function(dados, produto_dt = FALSE){
 
   dados <- data.table(dados)
 

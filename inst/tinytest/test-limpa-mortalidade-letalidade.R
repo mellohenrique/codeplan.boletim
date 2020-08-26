@@ -1,9 +1,9 @@
 
-# Teste sobre a funcao limpa_base_min_saude
-limpeza_teste <- codeplan.boletim::limpa_base_mortalidade_letalidade(teste)
+# Teste sobre a funcao limpa_min_saude
+limpeza_teste <- codeplan.boletim::limpa_mortalidade_letalidade(teste)
 
-expect_equal(class(codeplan.boletim::limpa_base_mortalidade_letalidade(teste)), "data.frame")
-expect_equal(class(codeplan.boletim::limpa_base_mortalidade_letalidade(teste, produto_dt = TRUE)), c("data.table", "data.frame"))
+expect_equal(class(codeplan.boletim::limpa_mortalidade_letalidade(teste)), "data.frame")
+expect_equal(class(codeplan.boletim::limpa_mortalidade_letalidade(teste, produto_dt = TRUE)), c("data.table", "data.frame"))
 
 expect_equal(as.vector(table(limpeza_teste$estado)), c(1, 1))
 expect_equal(names(table(limpeza_teste$estado)), c("AM", "DF"))
