@@ -4,10 +4,12 @@
 \alias{limpa_dados_semana}
 \title{Gera os produtos utilizados no boletim COVID 19 da codeplan}
 \usage{
-limpa_dados_semana(dados_uf, produto_dt)
+limpa_dados_semana(dados_uf, produto_dt = FALSE)
 }
 \arguments{
 \item{dados_uf}{Dados do ministerio da saude por UF limpos}
+
+\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }
 \value{
 Um arquivo com os dados dde casos e obitos por semana do ministério da saúde de COVID 19

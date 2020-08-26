@@ -2,7 +2,7 @@
 #'
 #' @description Função que baixa os dados do ministério da saúde
 #'
-#' @inheritParams limpa_base_mortalide_letalidade
+#' @inheritParams limpa_base_mortalidade_letalidade
 #' @param dados_uf Dados do ministerio da saude por UF limpos
 #'
 #' @return Um arquivo com os dados dde casos e obitos por semana do ministério da saúde de COVID 19
@@ -13,7 +13,10 @@
 #'
 #'
 
-limpa_dados_semana <- function(dados_uf, produto_dt){
+limpa_dados_semana <- function(dados_uf, produto_dt = FALSE){
+
+  dados_uf = as.data.table(dados_uf)
+
   dados_uf[, semana := cumsum(weekdays(date) == "domingo"),by = state]
   dados_uf[, `:=`(confirmed = max(confirmed),
                   deaths = max(deaths),
@@ -21,6 +24,14 @@ limpa_dados_semana <- function(dados_uf, produto_dt){
            by = .(state, semana)]
 
   dados_uf = dados_uf[weekdays(date) == "sábado", .(date, state, confirmed, deaths)]
+
+  dados_uf[, `:=`(casos_semana = confirmed - lag(confirmed),
+           obitos_semana = deaths - lag(deaths)), by = state]
+
+  dados_uf[pop, on = .(state = state), pop := pop]
+
+  dados_uf[, `:=`(confirmed_100k = 100000 * confirmed / pop,
+                  deaths_100k = 100000 * deaths / pop)]
 
   retorna_dt_df(dados_uf, produto_dt = produto_dt)
 }
