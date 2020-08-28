@@ -18,7 +18,7 @@ desenha_crescimento_semana <- function(dados_uf){
     dados_uf = as.data.table(dados_uf)
   }
 
-  dados_uf[,`:=`(crescimento_semana = confirmed/lag(confirmed, 7) - 1), by = state]
+  dados_uf[,`:=`(crescimento_semana = {confirmed/shift(confirmed, 7) - 1}), by = state]
 
   dados_uf = dados_uf[date == max(date), .(state, crescimento_semana)]
 
