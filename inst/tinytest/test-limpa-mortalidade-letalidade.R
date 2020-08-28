@@ -1,5 +1,5 @@
 
-# Teste sobre a funcao limpa_min_saude
+# Teste sobre a funcao limpa_mortalidade_letalidade
 limpeza_teste <- codeplan.boletim::limpa_mortalidade_letalidade(teste)
 
 expect_equal(class(codeplan.boletim::limpa_mortalidade_letalidade(teste)), "data.frame")
