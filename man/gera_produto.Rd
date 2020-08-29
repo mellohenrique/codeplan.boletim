@@ -4,7 +4,7 @@
 \alias{gera_produto}
 \title{Gera os produtos utilizados no boletim COVID 19 da codeplan}
 \usage{
-gera_produto(dados, produto_dt)
+gera_produto(dados, produto_dt = FALSE)
 }
 \arguments{
 \item{dados}{base dados carregada do ministerio da saude a ser lida}

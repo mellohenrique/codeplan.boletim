@@ -11,7 +11,7 @@
 #' @examples
 #'
 
-gera_produto <- function(dados, produto_dt){
+gera_produto <- function(dados, produto_dt = FALSE){
   dados_uf = limpa_min_saude(dados, produto_dt = produto_dt)
 
   dados_mortal_letal = limpa_mortalidade_letalidade(dados, produto_dt = produto_dt)
