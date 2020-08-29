@@ -4,21 +4,15 @@
 \alias{gera_produto}
 \title{Gera os produtos utilizados no boletim COVID 19 da codeplan}
 \usage{
-gera_produto(
-  local = "dados/",
-  local_resultados = "produto/",
-  produto_dt = FALSE,
-  data_dados = NULL,
-  prefixo = NULL
-)
+gera_produto(dados, produto_dt)
 }
 \arguments{
-\item{local}{especifica local do qual carregar a base da dados obtida do ministerio da saude, padrao e carregar a partir da pasta "dados" do diretorio atual}
+\item{dados}{base dados carregada do ministerio da saude a ser lida}
 
-\item{data_dados}{especifica de que data os dados devem ser carregados, o padrao e ler a ultima base disponivel}
+\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }
 \value{
-Um arquivo com os dados do ministério da saúde de COVID 19
+Uma lista com os dados do ministerio da saude no formato UF, os dados de mortalidade e letalidade do ministerio da saude e os dados de classificacao dos estados do ministerio da saude
 }
 \description{
 Função que baixa os dados do ministério da saúde

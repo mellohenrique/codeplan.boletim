@@ -2,35 +2,21 @@
 #'
 #' @description Função que baixa os dados do ministério da saúde
 #'
-#' @inheritParams le_dados_ministerio_saude
+#' @inheritParams limpa_min_saude
 #'
-#' @return Um arquivo com os dados do ministério da saúde de COVID 19
+#' @return Uma lista com os dados do ministerio da saude no formato UF, os dados de mortalidade e letalidade do ministerio da saude e os dados de classificacao dos estados do ministerio da saude
 #'
 #' @export
 #'
 #' @examples
 #'
 
-gera_produto <- function(local = "dados/", local_resultados = "produto/", produto_dt = FALSE, data_dados = NULL, prefixo = NULL){
+gera_produto <- function(dados, produto_dt){
+  dados_uf = limpa_min_saude(dados, produto_dt = produto_dt)
 
-  if(is.null(data_dados)){
-    baixa_min_saude(local = local)
-    }
+  dados_mortal_letal = limpa_mortalidade_letalidade(dados, produto_dt = produto_dt)
 
-  dados_brutos = le_dados_ministerio_saude(local = local, data_dados = data_dados)
+  classificacao_mortal_letal = classifica_mortalidade_letalidade(dados_mortal_letal, produto_dt = produto_dt)
 
-  dados_uf = limpa_base_min_saude(dados_brutos, produto_dt = produto_dt)
-
-  dados_mortal_letal = limpa_base_mortalidade_letalidade(dados_brutos, produto_dt = produto_dt)
-
-  classificacao_mortal_letal = classifica_mortalidade_letalidade(limpa_base_mortalidade_letalidade(dados_brutos, produto_dt = produto_dt))
-
-  if (is.null(prefixo)){
-    prefixo = max(dados_uf$date)
-    }
-
-  readr::write_excel_csv2(dados_uf, paste0(local_resultados, prefixo, "-uf.csv"))
-  readr::write_excel_csv2(dados_mortal_letal, paste0(local_resultados, prefixo, "-mortal-letal.csv"))
-  readr::write_excel_csv2(classificacao_mortal_letal, paste0(local_resultados, prefixo, "-classificao-mortal-letal.csv"))
-
+  list(dados_uf, dados_mortal_letal, classificacao_mortal_letal)
 }
