@@ -7,6 +7,7 @@
 #' @return Um data.frame com os dados do ministério da saúde de COVID 19 agrupados por semana
 #'
 #' @import data.table
+#' @import ggplot2
 #'
 #' @export
 #'
