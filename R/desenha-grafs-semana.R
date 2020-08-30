@@ -45,5 +45,6 @@ desenha_grafs_semana <- function(dados_semana){
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-  list(obitos_semana, casos_semana, dens_obitos, dens_casos)
+  resultado = list(obitos_semana, casos_semana, dens_obitos, dens_casos)
+  names(resultado) = c("obitos_semana", "casos_semana", "dens_obitos", "dens_casos")
 }

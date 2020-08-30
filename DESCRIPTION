@@ -1,7 +1,7 @@
 Package: codeplan.boletim
 Type: Package
 Title: Gerador dos dados do Boletim da Codeplan
-Version: 0.1.81
+Version: 0.1.9
 Author: Henrique de Mello Santos de Assunção
 Maintainer: Henrique de Mello Santos de Assunção <henrique.mello1992@gmail.com>
 Description: Pacote para automatizar o processo de geração do boletim Codeplan.
