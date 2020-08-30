@@ -18,5 +18,7 @@ gera_produto <- function(dados, produto_dt = FALSE){
 
   classificacao_mortal_letal = classifica_mortalidade_letalidade(dados_mortal_letal, produto_dt = produto_dt)
 
-  list(dados_uf, dados_mortal_letal, classificacao_mortal_letal)
+  dados_semana = limpa_dados_semana(dados_uf, produto_dt = produto_dt)
+
+  list(dados_uf, dados_mortal_letal, classificacao_mortal_letal, dados_semana)
 }
