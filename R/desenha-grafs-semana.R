@@ -47,4 +47,5 @@ desenha_grafs_semana <- function(dados_semana){
 
   resultado = list(obitos_semana, casos_semana, dens_obitos, dens_casos)
   names(resultado) = c("obitos_semana", "casos_semana", "dens_obitos", "dens_casos")
+  resultado
 }

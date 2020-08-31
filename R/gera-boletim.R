@@ -37,6 +37,7 @@ gera_boletim <- function(local = "dados/", local_resultados = "produto/", produt
   ggplot2::ggsave(paste0(local_resultados, prefixo, "crescimento-semana.png"), graf_crescimento_semana,  width = 7.368, height = 4.356)
 
   for (i in seq_along(graficos_casos_semana)){
-    ggplot2::ggsave(paste0(local_resultados, prefixo, names(graficos_casos_semana),".png"), graficos_casos_semana[[i]],  width = 7.368, height = 4.356)
+    ggplot2::ggsave(paste0(local_resultados, prefixo, names(graficos_casos_semana)[i],".png"), graficos_casos_semana[[i]],  width = 7.368, height = 4.356)
   }
+
 }

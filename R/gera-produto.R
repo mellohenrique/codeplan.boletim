@@ -20,5 +20,7 @@ gera_produto <- function(dados, produto_dt = FALSE){
 
   dados_semana = limpa_dados_semana(dados_uf, produto_dt = produto_dt)
 
-  list(dados_uf, dados_mortal_letal, classificacao_mortal_letal, dados_semana)
+  resultado = list(dados_uf, dados_mortal_letal, classificacao_mortal_letal, dados_semana)
+  names(resultado) = c("dados_uf", "dados_mortal_letal", "classificacao_mortal_letal", "dados_semana")
+  resultado
 }
