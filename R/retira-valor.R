@@ -19,13 +19,13 @@ retira_valor <- function(dados, variavel_condicional, condicao, variavel_retirad
   resultado = as.vector(dados[dados[, variavel_condicional] == condicao, variavel_retirada])
 
   if (variavel_retirada == "data"){
-    resultado = format(resultado, "%d/%m/%Y")
+    resultado = format(as.Date(resultado), "%d/%m/%Y")
   } else if(variavel_retirada == "estado") {
     resultado = resultado
   } else if (percentual) {
     resultado = scales::percent(resultado, big.mark = ".", decimal.mark = ",", accuracy = 0.01)
   } else {
-      resultado = scales::number(resultado, big.mark = ".", decimal.mark = ",", accuracy = 0.01)
+      resultado = scales::number(resultado, big.mark = ".", decimal.mark = ",", accuracy = 1)
   }
 
   resultado
