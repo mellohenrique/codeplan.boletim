@@ -25,7 +25,8 @@ limpa_dados_semana <- function(dados_uf, produto_dt = FALSE){
   dados_uf[pop, on = .(state = state), pop := pop]
 
   dados_uf[, `:=`(confirmed_100k = {100000 * casos_semana/ pop},
-                  deaths_100k = {100000 * obitos_semana / pop})]
+                  deaths_100k = {100000 * obitos_semana / pop},
+                  date = as.Date(date))]
 
   retorna_dt_df(dados_uf, produto_dt = produto_dt)
 }

@@ -15,3 +15,5 @@ expect_equal(limpeza_teste$confirmed, c(101777, 106428, 111241, 107922, 121824, 
 expect_equal(limpeza_teste$deaths, c(3278, 3364, 3463, 1490, 1712, 1958))
 expect_equal(limpeza_teste$confirmed_100k, c(NA,112.21838939 , 116.12709269, NA, 461.05354483 , 437.44038673))
 expect_equal(limpeza_teste$deaths_100k, c(NA, 2.074990644, 2.388652021, NA, 7.362529633, 8.158478782))
+
+expect_equal(class(limpeza_teste$date), "Date")

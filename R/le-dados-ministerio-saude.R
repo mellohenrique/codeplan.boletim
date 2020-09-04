@@ -17,18 +17,18 @@ le_dados_ministerio_saude <- function(local = "dados/", data_dados = NULL){
   try(if(!is.character(local)) {stop(("Defina um local como character"))})
 
   if (!is.null(data_dados)){
-    try(if(stringr::str_detect(data_dados, "[0-9]{4}-[0-9]{2}-[0-9]{2}") |
+    try(if(!stringr::str_detect(data_dados, "[0-9]{4}-[0-9]{2}-[0-9]{2}") |
            length(data_dados) != 10) {stop(("Defina a data no formato YYYY-MM-DD ou deixe como NULL"))})
   }
 
   if(is.null(data_dados)) {
     if(as.numeric(format(Sys.time(), "%H")) > 18){
-    data_dados = format(Sys.Date(), "%d%b%Y")
+    data_dados = format(Sys.Date())
     } else {
-      data_dados = format(Sys.Date() - 1, "%d%b%Y")
+      data_dados = format(Sys.Date() - 1)
       }
   } else {
-    data_dados = format(as.Date(data_dados), "%d%b%Y")
+    data_dados
   }
 
   readxl::read_excel(paste0(local, data_dados, ".xlsx"),
