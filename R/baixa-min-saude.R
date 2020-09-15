@@ -19,7 +19,7 @@ baixa_min_saude <- function(local = "dados/"){
 
   nome_arquivo = stringr::str_extract(url, "[0-9]+[a-z]+[0-9]+\\.[a-z]+$")
 
-  nome_arquivo = paste0(as.Date(stringr::str_extract(nome_arquivo, "[0-9]+[a-z]+[0-9]+"), format = "%d%b%Y"), ".xlsx")
+  nome_arquivo = paste0(as.Date(stringr::str_extract(nome_arquivo, "[0-9]+[a-z]+[0-9]+"), format = "%d%b%Y"), "-ministerio-saude.xlsx")
 
-  utils::download.file(url, paste0(local, nome_arquivo, mode = 'wb'))
+  utils::download.file(url, paste0(local, nome_arquivo), mode = 'wb')
 }

@@ -22,7 +22,8 @@ desenha_grafs_semana <- function(dados_semana){
     labs(x = "", y = "Óbitos acumulados por semana") +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%B")
+    scale_x_date(date_breaks = "1 month", date_labels = "%B") +
+    theme(axis.text.y = element_text(size = 8))
 
   casos_semana = ggplot(dados_semana, aes(x = date, y = casos_semana)) +
     geom_col(fill = "darkblue") +
@@ -30,7 +31,8 @@ desenha_grafs_semana <- function(dados_semana){
     labs(x = "", y = "Óbitos acumulados por semana") +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%B")
+    scale_x_date(date_breaks = "1 month", date_labels = "%B") +
+    theme(axis.text.y = element_text(size = 8))
 
   dens_obitos = ggplot(dados_semana, aes(x = date, y = deaths_100k)) +
     geom_col(fill = "red4") +
@@ -38,7 +40,8 @@ desenha_grafs_semana <- function(dados_semana){
     labs(x = "", y = "Óbitos acumulados por cem mil habiantes por semana") +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%B")
+    scale_x_date(date_breaks = "1 month", date_labels = "%B") +
+    theme(axis.text.y = element_text(size = 8))
 
   dens_casos = ggplot(dados_semana, aes(x = date, y = confirmed_100k)) +
     geom_col(fill = "darkblue") +
@@ -46,7 +49,8 @@ desenha_grafs_semana <- function(dados_semana){
     labs(x = "", y = "Casos acumulados por cem mil habiantes por semana") +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    scale_x_date(date_breaks = "1 month", date_labels = "%B")
+    scale_x_date(date_breaks = "1 month", date_labels = "%B") +
+    theme(axis.text.y = element_text(size = 8))
 
   resultado = list(obitos_semana, casos_semana, dens_obitos, dens_casos)
   names(resultado) = c("obitos_semana", "casos_semana", "dens_obitos", "dens_casos")

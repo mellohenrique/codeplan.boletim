@@ -26,7 +26,7 @@ le_dados_ministerio_saude <- function(local = "dados/", data_dados = NULL){
     data_dados
   }
 
-  readxl::read_excel(paste0(local, data_dados, ".xlsx"),
+  readxl::read_excel(paste0(local, data_dados, "-ministerio-saude.xlsx"),
                      col_types = c("text", "text", "text", "numeric", "numeric", "numeric", "text", "date", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical"))
 
 }
