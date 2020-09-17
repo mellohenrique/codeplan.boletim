@@ -19,8 +19,8 @@ limpa_semana <- function(dados_uf, produto_dt = FALSE){
 
   dados_uf = dados_uf[weekdays(date) == "sábado", .(date, state, confirmed, deaths)]
 
-  dados_uf[, `:=`(obitos_semana = {deaths - shift(deaths, 1)},
-                  casos_semana = confirmed - shift(confirmed, 1)), by = state]
+  dados_uf[, `:=`(obitos_semana = {deaths - shift(deaths, 1, fill = 0)},
+                  casos_semana = confirmed - shift(confirmed, 1, fill = 0)), by = state]
 
   dados_uf[pop, on = .(state = state), pop := pop]
 

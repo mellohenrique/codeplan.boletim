@@ -16,15 +16,15 @@ gera_serie_estadual <- function(dados_uf, produto_dt = FALSE, estados_selecionad
 
   dados = as.data.table(dados_uf)
 
-  dados = dados[, .(data = date,
+  dados = dados[, .(data = as.Date(date),
                     estado = state,
-                    casos = { confirmed - shift(confirmed, 1)},
+                    casos = { confirmed - shift(confirmed, 1, fill = 0)},
                     casos_acumulados = confirmed,
-                    obitos = {deaths - shift(deaths, 1)},
+                    obitos = {deaths - shift(deaths, 1, fill = 0)},
                     obitos = deaths),
                 by = state]
 
-  dados[estado %in% estados_selecionados,]
+  dados = dados[estado %in% estados_selecionados,]
 
   retorna_dt_df(dados, produto_dt = produto_dt)
 }
