@@ -2,7 +2,7 @@
 #'
 #' @description Recebe os dados de casos por UF no formato utilizado pelo ministerio da saude e gera um grafico de crescimento do numero de casos na ultima semana
 #'
-#' @inheritParams limpa_dados_semana
+#' @inheritParams limpa_semana
 #'
 #' @return Um grafico de crscimento semanal usado no boletim semanal da codeplan
 #'
