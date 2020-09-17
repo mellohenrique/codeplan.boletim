@@ -9,11 +9,7 @@
 #'
 #' @import data.table
 #'
-#' @export
-#'
 #' @examples
-#'
-#'
 
 retorna_dt_df <- function(dados, produto_dt){
   if(produto_dt) {

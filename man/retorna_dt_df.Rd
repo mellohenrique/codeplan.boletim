@@ -17,7 +17,3 @@ Um data.frame ou data.table
 \description{
 Recebe um data.table e determina se transforma em data.frame ou continua dt
 }
-\examples{
-
-
-}

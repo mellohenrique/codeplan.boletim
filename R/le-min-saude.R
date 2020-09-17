@@ -12,7 +12,7 @@
 #' @examples
 #'
 
-le_dados_ministerio_saude <- function(local = "dados/", data_dados = NULL){
+le_min_saude <- function(local = "dados/", data_dados = NULL){
 
   try(if(!is.character(local)) {stop(("Defina o local como character"))})
 

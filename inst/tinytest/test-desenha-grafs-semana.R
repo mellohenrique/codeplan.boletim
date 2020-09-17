@@ -2,7 +2,7 @@
 
 dados_uf <- codeplan.boletim::limpa_min_saude(teste)
 
-dados_semana <- codeplan.boletim::limpa_dados_semana(dados_uf)
+dados_semana <- codeplan.boletim::limpa_semana(dados_uf)
 
 graficos <- codeplan.boletim::desenha_grafs_semana(dados_semana)
 

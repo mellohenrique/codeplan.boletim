@@ -13,40 +13,42 @@
 #' @export
 #'
 
-limpa_dados_df <- function(dados_df, ra = FALSE, produto_dt = FALSE){
+limpa_df <- function(dados_df, ra = FALSE, produto_dt = FALSE){
 
-  dados_df <- data.table(dados_df)
+  dados = data.table(dados_df)
 
-  dados_df[, `:=` (primeiros_sintomas = {as.Date(primeiros_sintomas)},
-                   dataObito = {as.Date(ifelse(estado_de_saude == "obito", as.character(dataobito), NA_character_))})]
+  dados[, `:=` (primeiros_sintomas = {as.Date(primeiros_sintomas)},
+                dataobito = {as.Date(ifelse(estado_de_saude == "obito", as.character(dataobito), NA_character_))})]
 
   if(ra){
-    casos = setDT(df)[, .N, keyby = c("primeiros_sintomas", "ra_localid")]
+    casos = setDT(dados)[, .N, keyby = c("primeiros_sintomas", "ra_localid")]
     setnames(casos, c("data", "ra", "casos"))
 
-    obitos = setDT(df)[, .N, keyby = c("dataobito", "ra_localid")][!is.na(dataobito),]
+    obitos = setDT(dados)[, .N, keyby = c("dataobito", "ra_localid")][!is.na(dataobito),]
     setnames(obitos, c("data", "ra", "obitos"))
 
     ra_data = expand.grid(seq(min(c(casos$data, obitos$data)), max(c(casos$data, obitos$data)), by="days"),
-                          unique(df$ra_localid))
+                          unique(dados$ra_localid))
 
     ra_data = as.data.table(ra_data)
+
     setnames(ra_data, c("data", "ra"))
 
     df_serie = merge(ra_data, casos, all = TRUE, by = c("data" = "data", "ra" = "ra"))
     df_serie = merge(df_serie, obitos, all = TRUE, by = c("data" = "data", "ra" = "ra"))
 
     df_serie[, `:=`(casos = {ifelse(is.na(casos), 0, casos)},
-                    obitos = {ifelse(is.na(obitos), 0, obitos)},
-                    casos_acumulados = cumsum(casos),
-                    obitos_acumulados = cumsum(obitos)),
+                    obitos = {ifelse(is.na(obitos), 0, obitos)}),
              by = ra]
 
+    df_serie[, `:=`(casos_acumulados = {cumsum(casos)},
+                    obitos_acumulados = {cumsum(obitos)}),
+             by = ra]
   } else {
-    casos = setDT(df)[, .N, keyby = primeiros_sintomas]
+    casos = setDT(dados)[, .N, keyby = primeiros_sintomas]
     setnames(casos, c("data", "casos"))
 
-    obitos = setDT(df)[, .N, keyby = dataobito][!is.na(dataobito),]
+    obitos = setDT(dados)[, .N, keyby = dataobito][!is.na(dataobito),]
     setnames(obitos, c("data", "obitos"))
 
     datas = data.table(data = seq(min(c(casos$data, obitos$data)), max(c(casos$data, obitos$data)), by="days"))
@@ -54,14 +56,12 @@ limpa_dados_df <- function(dados_df, ra = FALSE, produto_dt = FALSE){
     df_serie = merge(datas, casos, all = TRUE, by = c("data" = "data"))
     df_serie = merge(df_serie, obitos, all = TRUE, by = c("data" = "data"))
 
-    df_serie = merge(ra_data, casos, all = TRUE, by = c("data" = "data", "ra" = "ra"))
-    df_serie = merge(df_serie, obitos, all = TRUE, by = c("data" = "data", "ra" = "ra"))
-
     df_serie[, `:=`(casos = {ifelse(is.na(casos), 0, casos)},
-                    obitos = {ifelse(is.na(obitos), 0, obitos)},
-                    casos_acumulados = cumsum(casos),
-                    obitos_acumulados = cumsum(obitos))]
+                    obitos = {ifelse(is.na(obitos), 0, obitos)})]
+
+    df_serie[, `:=`(casos_acumulados = {cumsum(casos)},
+                    obitos_acumulados = {cumsum(obitos)})]
   }
 
-  df_serie
+  retorna_dt_df(df_serie, produto_dt = produto_dt)
 }

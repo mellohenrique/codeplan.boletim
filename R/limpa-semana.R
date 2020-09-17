@@ -13,7 +13,7 @@
 #'
 #'
 
-limpa_dados_semana <- function(dados_uf, produto_dt = FALSE){
+limpa_semana <- function(dados_uf, produto_dt = FALSE){
 
   dados_uf = as.data.table(dados_uf)
 

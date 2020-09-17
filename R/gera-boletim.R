@@ -2,7 +2,7 @@
 #'
 #' @description Função que baixa os dados do ministério da saúde
 #'
-#' @inheritParams le_dados_ministerio_saude
+#' @inheritParams le_min_saude
 #'
 #' @return Um arquivo com os dados do ministério da saúde de COVID 19
 #'
@@ -17,7 +17,7 @@ gera_boletim <- function(local = "dados/", local_resultados = "produto/", produt
     baixa_min_saude(local = local)
   }
 
-  dados_brutos = le_dados_ministerio_saude(local = local, data_dados = data_dados)
+  dados_brutos = le_min_saude(local = local, data_dados = data_dados)
 
   lista_resultados <- gera_produto(dados_brutos, produto_dt = produto_dt)
 

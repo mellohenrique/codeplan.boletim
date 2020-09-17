@@ -15,7 +15,7 @@ gera_produto(dados, produto_dt = FALSE)
 Uma lista com os dados do ministerio da saude no formato UF, os dados de mortalidade e letalidade do ministerio da saude e os dados de classificacao dos estados do ministerio da saude
 }
 \description{
-Função que baixa os dados do ministério da saúde
+Função que gera as tabelas, que utilizam os dados do ministerio da saude, utilizadas no boletim
 }
 \examples{
 
