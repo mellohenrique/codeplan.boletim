@@ -10,7 +10,7 @@ desenha_crescimento_semana(dados_uf)
 \item{dados_uf}{Dados do ministerio da saude por UF limpos}
 }
 \value{
-Um grafico de crscimento semanal usado no boletim semanal da codeplan
+Um grafico de crescimento semanal usado no boletim semanal da codeplan
 }
 \description{
 Recebe os dados de casos por UF no formato utilizado pelo ministerio da saude e gera um grafico de crescimento do numero de casos na ultima semana

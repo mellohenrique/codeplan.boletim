@@ -4,7 +4,7 @@
 #'
 #' @inheritParams limpa_semana
 #'
-#' @return Um grafico de crscimento semanal usado no boletim semanal da codeplan
+#' @return Um grafico de crescimento semanal usado no boletim semanal da codeplan
 #'
 #' @import data.table
 #' @import ggplot2

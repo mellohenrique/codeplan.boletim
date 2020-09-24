@@ -14,9 +14,9 @@ expect_equal(class(dados_dt), c("data.table", "data.frame"))
 expect_equal(class(dados_amdf_dt), c("data.table", "data.frame"))
 
 # Teste de valores corretos de obitos e casos diarios
-expect_equal(dados_df$casos[dados_am$data %in% as.Date(c("2020-08-06", "2020-08-11", "2020-08-16"))],
+expect_equal(dados_am$casos[dados_am$data %in% as.Date(c("2020-08-06", "2020-08-11", "2020-08-16"))],
              c(804, 908, 671))
-expect_equal(dados_df$obitos[dados_am$data %in% as.Date(c("2020-08-03", "2020-08-13", "2020-08-18"))],
+expect_equal(dados_am$obitos[dados_am$data %in% as.Date(c("2020-08-03", "2020-08-13", "2020-08-18"))],
              c(5, 18, 19))
 expect_equal(dados_amdf$casos[dados_amdf$data %in% as.Date(c("2020-08-06", "2020-08-11", "2020-08-16"))],
              c(804, 908, 671, 2034, 1415, 1453))
