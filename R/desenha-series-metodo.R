@@ -23,7 +23,7 @@ desenha_series_metodo <- function(dados_ms, dados_ssp){
 
   lista <- list(dados_ms = dados_ms, dados_ssp = dados_ssp)
 
-  for (i  in seq_along(lista_arquivos)){
+  for (i  in seq_along(lista)){
     if (i == 1) {
       metodo = "Ministerio da Saúde"
     } else {

@@ -3,7 +3,7 @@
 #' @description
 #'
 #' @param lista_arquivos lista com data.frames com os dados de casos distrito federal limpos
-#' @param lista_data lista com as datas de extracao dos data.frames da lista_arquivos
+#' @param vetor_data vetor com as datas de extracao dos data.frames da lista_arquivos no formato YYYY-MM-DD
 #'
 #' @return Dois graficos comparando a serie de casos e obitos, em media movel de sete dias, para diferentes datas de extracao
 #'
@@ -15,12 +15,12 @@
 #' @examples
 #'
 
-desenha_series_temporal <- function(lista_arquivos, lista_data){
+desenha_series_temporal <- function(lista_arquivos, vetor_data){
   lista = list()
   for (i  in seq_along(lista_arquivos)){
     lista[[i]] = limpa_df(lista_arquivos[[i]], produto_dt = TRUE)
 
-    lista[[i]][, `:=`(data_extracao = as.Date(lista_data[[i]]),
+    lista[[i]][, `:=`(data_extracao = as.Date(vetor_data[[i]]),
                       casos_media_movel = frollmean(casos, 7),
                       obitos_media_movel = frollmean(obitos, 7))]
 
@@ -29,7 +29,7 @@ desenha_series_temporal <- function(lista_arquivos, lista_data){
 
   dados = rbindlist(lista)
 
-  datas_comuns = as.Date(as.data.table(table(dados$data))[N == length(lista_data),][,V1])
+  datas_comuns = as.Date(as.data.table(table(dados$data))[N == length(vetor_data),][,V1])
 
   dados = dados[data %in% datas_comuns,]
 

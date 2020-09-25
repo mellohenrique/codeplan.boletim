@@ -4,12 +4,12 @@
 \alias{desenha_series_temporal}
 \title{Desenha grafico da comparacao entre diferentes datas de extracao}
 \usage{
-desenha_series_temporal(lista_arquivos, lista_data)
+desenha_series_temporal(lista_arquivos, vetor_data)
 }
 \arguments{
 \item{lista_arquivos}{lista com data.frames com os dados de casos distrito federal limpos}
 
-\item{lista_data}{lista com as datas de extracao dos data.frames da lista_arquivos}
+\item{vetor_data}{vetor com as datas de extracao dos data.frames da lista_arquivos no formato YYYY-MM-DD}
 }
 \value{
 Dois graficos comparando a serie de casos e obitos, em media movel de sete dias, para diferentes datas de extracao
