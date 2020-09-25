@@ -2,7 +2,7 @@
 % Please edit documentation in R/desenha-series-temporal.R
 \name{desenha_series_temporal}
 \alias{desenha_series_temporal}
-\title{Desenha grafico da comparacao entre avaliacoes temporais}
+\title{Desenha grafico da comparacao entre diferentes datas de extracao}
 \usage{
 desenha_series_temporal(lista_arquivos, lista_data)
 }

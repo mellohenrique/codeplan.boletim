@@ -1,11 +1,11 @@
 #' @title Gera serie estadual
 #'
-#' @description Função que baixa os dados do ministério da saúde
+#' @description Funcao que retira os dados de um restado dos dados do ministerio da saude limpos
 #'
 #' @inheritParams limpa_semana
 #' @param estados_selecionados Vetor de caracteres com os estados que seram selecionados do conjunto de dados estaduais
 #'
-#' @return Um data.frame com a serie historica de casos, obitos, casos acumulados e obitos para cada dia disponivel
+#' @return Um data.frame com a serie historica de casos, obitos, casos acumulados e obitos para cada dia disponivel para um estado especifico
 #'
 #' @export
 #'

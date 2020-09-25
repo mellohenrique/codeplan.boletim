@@ -14,10 +14,10 @@ gera_serie_estadual(dados_uf, produto_dt = FALSE, estados_selecionados = "DF")
 \item{estados_selecionados}{Vetor de caracteres com os estados que seram selecionados do conjunto de dados estaduais}
 }
 \value{
-Um data.frame com a serie historica de casos, obitos, casos acumulados e obitos para cada dia disponivel
+Um data.frame com a serie historica de casos, obitos, casos acumulados e obitos para cada dia disponivel para um estado especifico
 }
 \description{
-Função que baixa os dados do ministério da saúde
+Funcao que retira os dados de um restado dos dados do ministerio da saude limpos
 }
 \examples{
 
