@@ -21,7 +21,7 @@ gera_serie_estadual <- function(dados_uf, produto_dt = FALSE, estados_selecionad
                     casos = { confirmed - shift(confirmed, 1, fill = 0)},
                     casos_acumulados = confirmed,
                     obitos = {deaths - shift(deaths, 1, fill = 0)},
-                    obitos = deaths),
+                    obitos_acumulados = deaths),
                 by = state]
 
   dados = dados[estado %in% estados_selecionados,]

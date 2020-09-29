@@ -42,7 +42,7 @@ desenha_series_metodo <- function(dados_ms, dados_ssp){
     ggplot2::geom_line() +
     ggplot2::scale_color_brewer(palette = "Set2") +
     ggplot2::scale_x_date(date_breaks = "months", date_labels = "%B") +
-    ggplot2::labs(x = "", y = "Média móvel de 7 dias de casos diários", color = "Data extração:") +
+    ggplot2::labs(x = "", y = "Média móvel de 7 dias de casos diários", color = "Fonte:") +
     ggplot2::theme_bw()
 
   obitos_media_movel = ggplot2::ggplot(dados, ggplot2::aes(x = data, y = obitos_media_movel, color = metodo)) +
