@@ -10,6 +10,11 @@
 #' @import data.table
 #'
 #' @examples
+#' exemplo_mtcars <- data.table::data.table(mtcars)
+#'
+#' retorna_dt_df(exemplo_mtcars, produto_dt = TRUE)
+#'
+#' retorna_dt_df(exemplo_mtcars, produto_dt = FALSE)
 
 retorna_dt_df <- function(dados, produto_dt){
   if(produto_dt) {

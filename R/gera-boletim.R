@@ -26,10 +26,10 @@ gera_boletim <- function(local = "dados/", local_resultados = "produto/", produt
     prefixo = paste0(prefixo, "-")
   }
 
-  readr::write_excel_csv2(lista_resultados[[1]], paste0(local_resultados, prefixo, "uf.csv"))
-  readr::write_excel_csv2(lista_resultados[[2]], paste0(local_resultados, prefixo, "mortal-letal.csv"))
-  readr::write_excel_csv2(lista_resultados[[3]], paste0(local_resultados, prefixo, "classificao-mortal-letal.csv"))
-  readr::write_excel_csv2(lista_resultados[[4]], paste0(local_resultados, prefixo, "semana.csv"))
+  fwrite(lista_resultados[[1]], file =  paste0(local_resultados, prefixo, "uf.csv"), sep = ";", dec = ",")
+  fwrite(lista_resultados[[2]], file = paste0(local_resultados, prefixo, "mortal-letal.csv"), sep = ";", dec = ",")
+  fwrite(lista_resultados[[3]], file = paste0(local_resultados, prefixo, "classificao-mortal-letal.csv"), sep = ";", dec = ",")
+  fwrite(lista_resultados[[4]], file = paste0(local_resultados, prefixo, "semana.csv"), sep = ";", dec = ",")
 
   graf_crescimento_semana = desenha_crescimento_semana(lista_resultados[[1]])
 

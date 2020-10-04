@@ -21,10 +21,10 @@ limpa_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
 
   dados = dados[data == max(data) & is.na(codmun), .(data, populacaoTCU2019, estado, casosAcumulado, obitosAcumulado, casosNovos)]
 
-  dados[, `:=`(estado = ifelse(is.na(estado), "BR", estado),
-           letalidade = obitosAcumulado/casosAcumulado,
-           mortalidade = 100000 * obitosAcumulado/populacaoTCU2019,
-           casos_100k = 100000 * casosAcumulado/populacaoTCU2019)]
+  dados[, `:=`(estado = {ifelse(is.na(estado) | estado == "", "BR", estado)},
+               letalidade = obitosAcumulado/casosAcumulado,
+               mortalidade = 100000 * obitosAcumulado/populacaoTCU2019,
+               casos_100k = 100000 * casosAcumulado/populacaoTCU2019)]
 
   retorna_dt_df(dados, produto_dt = produto_dt)
 }

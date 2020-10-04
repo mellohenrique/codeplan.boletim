@@ -26,7 +26,17 @@ le_min_saude <- function(local = "dados/", data_dados = NULL){
     data_dados
   }
 
-  readxl::read_excel(paste0(local, data_dados, "-ministerio-saude.xlsx"),
-                     col_types = c("text", "text", "text", "numeric", "numeric", "numeric", "text", "date", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical"))
+  dados = fread(paste0(local, data_dados, "-ministerio-saude.csv"),
+                dec = ",",
+                sep = ";",
+                encoding = "UTF-8",
+                colClasses=c("character","character","character",
+                             "numeric","numeric","numeric", "character",
+                             "character", "numeric", "numeric", "numeric",
+                             "numeric", "numeric", "numeric",
+                             "numeric", "numeric", "numeric"))
 
+  dados[, data := {as.Date(data)}]
+
+  as.data.frame(dados)
 }

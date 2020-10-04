@@ -13,13 +13,26 @@
 
 baixa_min_saude <- function(local = "dados/"){
 
+  # Define link a baixar
   resposta = httr::GET("https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/PortalGeral", httr::add_headers("X-Parse-Application-Id" = "unAFkcaNDeXajurGB7LChj8SgQYS2ptm"))
 
+  # Define nomes de arquivos que serao usados
   url = httr::content(resposta)[["results"]][[1]][["arquivo"]][["url"]]
 
   nome_arquivo = stringr::str_extract(url, "[0-9]+[a-z]+[0-9]+\\.[a-z]+$")
 
   nome_arquivo = paste0(as.Date(stringr::str_extract(nome_arquivo, "[0-9]+[a-z]+[0-9]+"), format = "%d%b%Y"), "-ministerio-saude.csv")
 
-  utils::download.file(url, paste0(local, nome_arquivo), mode = 'wb')
+  arquivo_zip = stringr::str_remove(stringr::str_extract(url, "HIST.+"), ".zip")
+  arquivo_csv = stringr::str_c(arquivo_zip, ".csv")
+
+  # Baixa arquivo e salva na pasta desejada
+  temp = tempfile()
+
+  utils::download.file(url, temp)
+
+  unzip(temp, exdir = stringr::str_remove(local, "/"), junkpaths = TRUE)
+
+  # Renomeia arquivo
+  file.rename(paste0(local, arquivo_csv), paste0(local, nome_arquivo))
 }
