@@ -11,13 +11,9 @@
 #' @examples
 #'
 
-gera_boletim <- function(local = "dados/", local_resultados = "produto/", produto_dt = FALSE, data_dados = NULL, prefixo = NULL){
+gera_boletim <- function(arquivo, local_resultados = "produto/", produto_dt = FALSE, max_data = NULL, prefixo = NULL){
 
-  if (is.null(data_dados)) {
-    baixa_min_saude(local = local)
-  }
-
-  dados_brutos = le_min_saude(local = local, data_dados = data_dados)
+  dados_brutos = le_min_saude(arquivo = arquivo, max_data = max_data)
 
   lista_resultados <- gera_produto(dados_brutos, produto_dt = produto_dt)
 

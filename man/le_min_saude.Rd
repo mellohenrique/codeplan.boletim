@@ -4,12 +4,12 @@
 \alias{le_min_saude}
 \title{Le dados do ministério da saúde}
 \usage{
-le_min_saude(local = "dados/", data_dados = NULL)
+le_min_saude(arquivo, max_data = NULL)
 }
 \arguments{
-\item{local}{especifica local do qual carregar a base da dados obtida do ministerio da saude, padrao e carregar a partir da pasta "dados" do diretorio atual}
+\item{arquivo}{especifica o arquivo com os dados do ministerios da saude}
 
-\item{data_dados}{especifica de que data os dados devem ser carregados, o padrao e ler a ultima base disponivel}
+\item{max_data}{especifica a data em que se avaliará os dados}
 }
 \value{
 Um data.frame com os dados do ministério da saúde de COVID 19

@@ -28,7 +28,7 @@ desenha_grafs_semana <- function(dados_semana){
   casos_semana = ggplot(dados_semana, aes(x = date, y = casos_semana)) +
     geom_col(fill = "darkblue") +
     facet_wrap(~state) +
-    labs(x = "", y = "Óbitos acumulados por semana") +
+    labs(x = "", y = "Casos acumulados por semana") +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
     scale_x_date(date_breaks = "1 month", date_labels = "%B") +
