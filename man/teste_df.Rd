@@ -11,6 +11,7 @@ Uma tabela com 17 colunas e 1300 linhas.
   \item{primeiros_sintomas}{Variavel em data com a data dos primeiros sintomas}
   \item{dataobito}{Variavel em data com a data do obito}
   \item{estado_de_saude}{Variavel em caractere com o estado de saude da pessoa}
+  \item{cadastro}{Variavel em data com a data de cadastro}
 }
 }
 \source{

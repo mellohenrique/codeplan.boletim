@@ -4,7 +4,7 @@
 ## Testes das dimensoes dos data.frames
 expect_equal(dim(teste), c(1300, 17))
 expect_equal(dim(pop), c(28, 2))
-expect_equal(dim(teste_df), c(500, 5))
+expect_equal(dim(teste_df), c(500, 6))
 
 ## Testes das classes dos data.frames
 expect_equal(class(teste), "data.frame")
