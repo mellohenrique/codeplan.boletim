@@ -31,5 +31,5 @@ gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2012-01-01", pro
   dados[, `:=`(casos_100k = 100000 * casos / pop,
                obitos_100k = 100000 * casos / pop)]
 
-  retorna_dt(dados, produto_dt)
+  retorna_dt_df(dados, produto_dt)
 }
