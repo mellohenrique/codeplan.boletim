@@ -2,6 +2,7 @@
 #'
 #' @description Funcao que recebe os dados de casos e obitos por observacao por regiao administrativa por data do cadastro da SSP e gera dados por dias
 #'
+#' @inheritParams limpa_mortalidade_letalidade
 #' @param caminho_cadastro caminho com os dados da SSP de cadastro
 #'
 #' @return Um data.frame com os dados de serie temporal dos dados de cadastro

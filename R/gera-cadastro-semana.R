@@ -2,7 +2,9 @@
 #'
 #' @description Funcao que recebe os dados de casos e obitos por dia por regiao administrativa por data do cadastro da SSP e gera dados por semana
 #'
-#' @param caminho_cadastro caminho com os dados da SSP de cadastro
+#' @inheritParams limpa_mortalidade_letalidade
+#' @param dados_cadastro dados da SSP de cadastro por dia por localidade
+#' @param data_inicio data em que se comecara a contagem das semanas
 #'
 #' @return Um data.frame com os dados de serie temporal por semana dos dados de cadastro
 #'
@@ -11,9 +13,9 @@
 #' @export
 
 
-gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2012-01-01", produto_dt = FALSE){
+gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", produto_dt = FALSE){
   if(is.data.table(dados_cadastro)){
-    dados = dados
+    dados = dados_cadastro
   } else {
     dados = data.table(dados_cadastro)
   }
@@ -24,7 +26,11 @@ gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2012-01-01", pro
 
   dados[data, on = .(data = data), epiweek := epiweek ]
 
-  dados[, .(casos = sum(casos)), by = .(epiweek, localidade)]
+  dados = dados[, .(casos = sum(casos),
+                    obitos = sum(obitos),
+                    dias_semana = .N), by = .(epiweek, localidade)]
+
+  dados = dados[dias_semana == 7, ]
 
   dados[as.data.table(pop_ra), on = .(localidade = ra), pop := pop]
 
