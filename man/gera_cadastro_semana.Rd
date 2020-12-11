@@ -6,12 +6,16 @@
 \usage{
 gera_cadastro_semana(
   dados_cadastro,
-  data_inicio = "2012-01-01",
+  data_inicio = "2020-01-01",
   produto_dt = FALSE
 )
 }
 \arguments{
-\item{caminho_cadastro}{caminho com os dados da SSP de cadastro}
+\item{dados_cadastro}{dados da SSP de cadastro por dia por localidade}
+
+\item{data_inicio}{data em que se comecara a contagem das semanas}
+
+\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }
 \value{
 Um data.frame com os dados de serie temporal por semana dos dados de cadastro

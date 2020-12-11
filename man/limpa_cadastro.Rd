@@ -8,6 +8,8 @@ limpa_cadastro(caminho_cadastro, produto_dt = FALSE)
 }
 \arguments{
 \item{caminho_cadastro}{caminho com os dados da SSP de cadastro}
+
+\item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }
 \value{
 Um data.frame com os dados de serie temporal dos dados de cadastro
