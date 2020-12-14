@@ -28,7 +28,8 @@ gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", pro
 
   dados = dados[, .(casos = sum(casos),
                     obitos = sum(obitos),
-                    dias_semana = .N), by = .(epiweek, localidade)]
+                    dias_semana = .N,
+                    data = max(data)), by = .(epiweek, localidade)]
 
   dados = dados[dias_semana == 7, ]
 
