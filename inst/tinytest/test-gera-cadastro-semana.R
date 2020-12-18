@@ -16,4 +16,9 @@ expect_equal(dados$obitos, c(6, 22, 37, 35, 11, 18, 30, 53, 17, 40, 67, 88))
 dados
 expect_equal(unique(dados$pop), c(NA, 217073, 2881900))
 
+# Checar existencia
+if (file.exists("x.csv")){
+  # Deleta arquivos
+  file.remove("x.csv")
+}
 

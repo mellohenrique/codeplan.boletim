@@ -29,3 +29,9 @@ expect_equal(dados_filtrados$obitos, c(6, 22, 37, 35, 11, 18, 30, 53))
 expect_equal(dados_filtrados_dt$obitos, c(11, 18, 30, 53))
 
 expect_equal(unique(dados$pop), c(50000, 217073, 2881900))
+
+# Checar existencia
+if (file.exists("x.csv")){
+  # Deleta arquivos
+  file.remove("x.csv")
+}

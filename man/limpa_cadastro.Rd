@@ -4,10 +4,10 @@
 \alias{limpa_cadastro}
 \title{Limpa dados de cadastro}
 \usage{
-limpa_cadastro(caminho_cadastro, produto_dt = FALSE)
+limpa_cadastro(arquivo, produto_dt = FALSE)
 }
 \arguments{
-\item{caminho_cadastro}{caminho com os dados da SSP de cadastro}
+\item{arquivo}{caminho com os dados da SSP de cadastro em formato csv2}
 
 \item{produto_dt}{variavel logica que define se o produto da funcao e um data.table (se produto_dt == TRUE) ou um data.frame (se produto_dt = FALSE), padrao utilizado e FALSE}
 }

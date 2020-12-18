@@ -3,7 +3,7 @@
 #' @description Funcao que recebe os dados de casos e obitos por observacao por regiao administrativa por data do cadastro da SSP e gera dados por dias
 #'
 #' @inheritParams limpa_mortalidade_letalidade
-#' @param caminho_cadastro caminho com os dados da SSP de cadastro
+#' @param arquivo caminho com os dados da SSP de cadastro em formato csv2
 #'
 #' @return Um data.frame com os dados de serie temporal dos dados de cadastro
 #'
@@ -12,9 +12,9 @@
 #' @export
 
 
-limpa_cadastro <- function(caminho_cadastro, produto_dt = FALSE){
+limpa_cadastro <- function(arquivo, produto_dt = FALSE){
 
-  dados <- fread(caminho_cadastro, encoding = "UTF-8")
+  dados <- fread(arquivo, encoding = "UTF-8")
 
   dados[, `:=`(cadastro = as.Date(cadastro),
                dataobito = as.Date(dataobito))]
