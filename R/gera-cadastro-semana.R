@@ -36,7 +36,7 @@ gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", pro
   dados[as.data.table(pop_ra), on = .(localidade = ra), pop := pop]
 
   dados[, `:=`(casos_100k = 100000 * casos / pop,
-               obitos_100k = 100000 * casos / pop)]
+               obitos_100k = 100000 * obitos / pop)]
 
   retorna_dt_df(dados, produto_dt)
 }
