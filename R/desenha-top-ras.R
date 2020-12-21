@@ -64,8 +64,8 @@ desenha_top_ras <- function(dados_top){
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
   graficos[[2]] = ggplot(top_obitos_graf,aes(x = data, y = obitos)) +
-    geom_col(fill = "darkblue") +
-    geom_label(aes(label = obitos, y = obitos + 2))  +
+    geom_col(fill = "red4") +
+    geom_label(aes(label = obitos, y = obitos + 0.8))  +
     facet_wrap(~localidade_fator, dir = "h") +
     theme_bw() +
     labs(x = "Semana", y = "Casos por semana", title = "", fill = "Data") +
