@@ -14,7 +14,7 @@
 
 gera_serie_estadual <- function(dados_uf, produto_dt = FALSE, estados_selecionados = "DF"){
 
-  if(!is.data.table(dados)){
+  if(!is.data.table(dados_uf)){
     dados = as.data.table(dados_uf)
   }
 
