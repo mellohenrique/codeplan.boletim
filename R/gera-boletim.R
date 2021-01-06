@@ -1,8 +1,13 @@
 #' @title Gera os produtos utilizados no boletim COVID 19 da codeplan
 #'
-#' @description Função que baixa os dados do ministério da saúde
+#' @description Função que gera o boletim
 #'
-#' @inheritParams le_min_saude
+#' @param arquivo_uf Arquivo csv2 com os dados de UF do ministerios da Saude
+#' @param arquivo_cadastro Arquivo csv2 com os dados de cadastro por pessoa do Distrito Federal
+#' @param local_resultados Diretorio em que os arquivos gerados serao salvos
+#' @param produto_dt Valor logico se os produtos gerados internamente da funcao serao no formato data.table
+#' @param max_data Data maxima em que serao avaliados os dados de covid
+#' @param prefixo Qual o prefixo sera utilizado para os resultados, padrao e utilizar a data maxima dos arquivos avaliados
 #'
 #' @return Um arquivo com os dados do ministério da saúde de COVID 19
 #'
@@ -11,30 +16,10 @@
 #' @examples
 #'
 
-gera_boletim <- function(arquivo, local_resultados = "produto/", produto_dt = FALSE, max_data = NULL, prefixo = NULL){
+gera_boletim <- function(arquivo_uf, arquivo_cadastro, local_resultados = "produto/", produto_dt = FALSE, max_data = NULL, prefixo = NULL){
 
-  dados_brutos = le_min_saude(arquivo = arquivo, max_data = max_data)
+  gera_boletim_uf(arquivo = arquivo_uf, local_resultados = local_resultados, produto_dt = produto_dt, max_data = max_data, prefixo = prefixo)
 
-  lista_resultados <- gera_produto(dados_brutos, produto_dt = produto_dt)
-
-  if (is.null(prefixo)){
-    prefixo = max(lista_resultados[[1]]$date)
-    prefixo = paste0(prefixo, "-")
-  }
-
-  fwrite(lista_resultados[[1]], file =  paste0(local_resultados, prefixo, "uf.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[2]], file = paste0(local_resultados, prefixo, "mortal-letal.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[3]], file = paste0(local_resultados, prefixo, "classificao-mortal-letal.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[4]], file = paste0(local_resultados, prefixo, "semana.csv"), sep = ";", dec = ",")
-
-  graf_crescimento_semana = desenha_crescimento_semana(lista_resultados[[1]])
-
-  graficos_casos_semana = desenha_grafs_semana(lista_resultados[[4]])
-
-  ggplot2::ggsave(paste0(local_resultados, prefixo, "crescimento-semana.png"), graf_crescimento_semana,  width = 10.3152, height = 6.0984)
-
-  for (i in seq_along(graficos_casos_semana)){
-    ggplot2::ggsave(paste0(local_resultados, prefixo, names(graficos_casos_semana)[i],".png"), graficos_casos_semana[[i]],  width = 10.3152, height = 6.0984)
-  }
+  gera_boletim_ra(arquivo = arquivo_cadastro, local_resultados = local_resultados, produto_dt = produto_dt, max_data = max_data, prefixo = prefixo)
 
 }

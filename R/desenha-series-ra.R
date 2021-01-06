@@ -17,9 +17,7 @@
 desenha_series_ra <- function(dados){
   lista = list()
 
-  if(!is.data.table(dados)){
-    dados = as.data.table(dados)
-  }
+  dados = checa_transforma_dt(dados)
 
   dados = dados[!localidade %in% c("NA", "Distrito Federal"),]
 

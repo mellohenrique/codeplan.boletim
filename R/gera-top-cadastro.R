@@ -14,9 +14,7 @@
 
 gera_top_cadastro <- function(dados_cadastro_semana, top = 6, produto_dt = FALSE){
 
-  if(!is.data.table(dados_cadastro_semana)){
-    dados_cadastro_semana = data.table(dados_cadastro_semana)
-  }
+  dados_cadastro_semana = checa_transforma_dt(dados_cadastro_semana)
 
   dados_filtrando = dados_cadastro_semana[, `:=`(crescimento_casos = casos + shift(casos, 1),
                                      crescimento_obitos = obitos + shift(obitos, 1)), by = localidade]

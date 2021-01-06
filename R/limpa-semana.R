@@ -15,7 +15,7 @@
 
 limpa_semana <- function(dados_uf, produto_dt = FALSE){
 
-  dados_uf = as.data.table(dados_uf)
+  dados_uf = checa_transforma_dt(dados_uf)
 
   dados_uf = dados_uf[weekdays(date) == "sábado", .(date, state, confirmed, deaths)]
 

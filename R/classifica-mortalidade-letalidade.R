@@ -16,7 +16,7 @@
 
 classifica_mortalidade_letalidade <- function(dados_mor_let, produto_dt = FALSE){
 
-  dados_mor_let = as.data.table(dados_mor_let)
+  dados_mor_let = checa_transforma_dt(dados_mor_let)
 
   dados_mor_let = dados_mor_let[estado != "BR", ]
 

@@ -14,11 +14,7 @@
 
 
 gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", produto_dt = FALSE){
-  if(is.data.table(dados_cadastro)){
-    dados = dados_cadastro
-  } else {
-    dados = data.table(dados_cadastro)
-  }
+  dados_cadastro = checa_transforma_dt(dados_cadastro)
 
   data = data.table(data = seq(as.Date(data_inicio), max(dados$data), by = "day"))
 

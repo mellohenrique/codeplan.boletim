@@ -11,8 +11,12 @@
 #' @examples
 #'
 
-gera_produto <- function(dados, produto_dt = FALSE){
+gera_produto_uf <- function(dados, produto_dt = FALSE){
+  dados = checa_transforma_dt(dados)
+
   dados_uf = limpa_min_saude(dados, produto_dt = produto_dt)
+
+  dados_capitais = limpa_capitais(dados, pproduto_dt = produto_dt)
 
   dados_mortal_letal = limpa_mortalidade_letalidade(dados, produto_dt = produto_dt)
 
@@ -20,7 +24,7 @@ gera_produto <- function(dados, produto_dt = FALSE){
 
   dados_semana = limpa_semana(dados_uf, produto_dt = produto_dt)
 
-  resultado = list(dados_uf, dados_mortal_letal, classificacao_mortal_letal, dados_semana)
-  names(resultado) = c("dados_uf", "dados_mortal_letal", "classificacao_mortal_letal", "dados_semana")
+  resultado = list(dados_uf, dados_capitais,  dados_mortal_letal, classificacao_mortal_letal, dados_semana)
+  names(resultado) = c("dados_uf", "dados_capitais", "dados_mortal_letal", "classificacao_mortal_letal", "dados_semana")
   resultado
 }
