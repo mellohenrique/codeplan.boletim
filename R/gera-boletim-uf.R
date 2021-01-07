@@ -22,15 +22,13 @@ gera_boletim_uf <- function(arquivo_uf, local_resultados = "produto/", produto_d
     prefixo = paste0(prefixo, "-")
   }
 
-  fwrite(lista_resultados[[1]], file =  paste0(local_resultados, prefixo, "uf.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[2]], file = paste0(local_resultados, prefixo, "capitais-mortal-letal.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[3]], file = paste0(local_resultados, prefixo, "mortal-letal.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[4]], file = paste0(local_resultados, prefixo, "classificao-mortal-letal.csv"), sep = ";", dec = ",")
-  fwrite(lista_resultados[[5]], file = paste0(local_resultados, prefixo, "semana.csv"), sep = ";", dec = ",")
+  for (i in seq_along(lista_resultados)){
+    fwrite(lista_resultados[[i]], file =  paste0(local_resultados, prefixo, names(lista_resultados)[i],".csv"), sep = ";", dec = ",")
+  }
 
   graf_crescimento_semana = desenha_crescimento_semana(lista_resultados[[1]])
 
-  graficos_casos_semana = desenha_grafs_semana(lista_resultados[[4]])
+  graficos_casos_semana = desenha_grafs_semana(lista_resultados[[5]])
 
   ggplot2::ggsave(paste0(local_resultados, prefixo, "crescimento-semana.png"), graf_crescimento_semana,  width = 10.3152, height = 6.0984)
 
