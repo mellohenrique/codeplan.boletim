@@ -7,8 +7,9 @@
 \format{
 Uma tabela com 2 colunas e 35 linhas.
 \describe{
-  \item{estado}{Variavel em caracteres com o regiao administrativa da localidade}
+  \item{ra}{Variavel em caracteres com o regiao administrativa da localidade}
   \item{pop}{Variavel numerica com o numero de pessoas na regiao administrativa}
+  \item{ra_fator}{Variavel em fator  com as regioes administrativas organizadas pelo numero da RA}
 }
 }
 \source{
