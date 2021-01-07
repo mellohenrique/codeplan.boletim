@@ -9,6 +9,8 @@
 #'
 #' @export
 #'
+#' @import data.table
+#'
 #' @examples
 #'
 
@@ -29,5 +31,6 @@ le_min_saude <- function(arquivo,  max_data = NULL){
   if (!is.null(max_data)){
     dados = dados[data <= as.Date(max_data)]
   }
-  as.data.frame(dados)
+
+  dados
 }

@@ -15,9 +15,7 @@
 #'
 
 desenha_crescimento_semana <- function(dados_uf){
-  if (!class(dados_uf)[1] == "data.table"){
-    dados_uf = as.data.table(dados_uf)
-  }
+  dados_uf = checa_transforma_dt(dados_uf)
 
   dados_uf[,`:=`(crescimento_semana = {confirmed/shift(confirmed, 7) - 1}), by = state]
 

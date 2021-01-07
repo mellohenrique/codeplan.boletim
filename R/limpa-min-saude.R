@@ -17,7 +17,7 @@
 
 limpa_min_saude <- function(dados, produto_dt = FALSE){
 
-  dados <- data.table(dados)
+  dados <- checa_transforma_dt(dados)
 
   dados = dados[is.na(codmun) & regiao != "Brasil", .(data, estado, casosAcumulado, obitosAcumulado)]
 

@@ -17,7 +17,7 @@
 
 limpa_mortalidade_letalidade <- function(dados, produto_dt = FALSE){
 
-  dados = as.data.table(dados)
+  dados = checa_transforma_dt(dados)
 
   dados = dados[data == max(data) & is.na(codmun), .(data, populacaoTCU2019, estado, casosAcumulado, obitosAcumulado, casosNovos)]
 

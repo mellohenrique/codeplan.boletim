@@ -16,9 +16,7 @@
 # Testando arquivos
 
 desenha_top_ras <- function(dados_top){
-  if(!is.data.table(dados_top)){
-    dados_top = as.data.table(dados_top)
-  }
+  dados_top = checa_transforma_dt(dados_top)
 
   top_casos_graf = dados_top[top_casos &
                                epiweek %in% (max(epiweek) - 3):max(epiweek),]

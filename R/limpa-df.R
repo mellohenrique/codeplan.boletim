@@ -15,7 +15,7 @@
 
 limpa_df <- function(dados_df, ra = FALSE, produto_dt = FALSE){
 
-  dados = data.table(dados_df)
+  dados = checa_transforma_dt(dados_df)
 
   dados[, `:=` (primeiros_sintomas = {as.Date(primeiros_sintomas)},
                 dataobito = {as.Date(ifelse(estado_de_saude == "obito", as.character(dataobito), NA_character_))})]
