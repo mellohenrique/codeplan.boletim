@@ -19,11 +19,13 @@ desenha_series_ra <- function(dados){
 
   dados = checa_transforma_dt(dados)
 
-  dados = dados[!localidade %in% c("NA", "Distrito Federal"),]
+  dados = dados[!ra_fator %in% c("NA", "Distrito Federal"),]
+
+  dados = dados[!is.na(ra_fator),]
 
   lista[[1]] = ggplot(dados, aes(x = data, y = casos)) +
     geom_col(fill = "darkblue") +
-    facet_wrap(~localidade) +
+    facet_wrap(~ra_fator) +
     theme_bw() +
     labs(x = "Semana", y = "Casos por semana", fill = "Data") +
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
@@ -31,7 +33,7 @@ desenha_series_ra <- function(dados){
 
   lista[[2]] =ggplot(dados, aes(x = data, y = obitos)) +
     geom_col(fill = "red4") +
-    facet_wrap(~localidade) +
+    facet_wrap(~ra_fator) +
     theme_bw() +
     labs(x = "Semana", y = "Óbitos por semana", fill = "Data") +
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
@@ -39,7 +41,7 @@ desenha_series_ra <- function(dados){
 
   lista[[3]] =ggplot(dados[!is.na(pop),], aes(x = data, y = casos_100k)) +
     geom_col(fill = "darkblue") +
-    facet_wrap(~localidade) +
+    facet_wrap(~ra_fator) +
     theme_bw() +
     labs(x = "Semana", y = "Casos por 100 mil habitantes por semana", fill = "Data")+
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
@@ -47,7 +49,7 @@ desenha_series_ra <- function(dados){
 
   lista[[4]] = ggplot(dados[!is.na(pop),], aes(x = data, y = obitos_100k)) +
     geom_col(fill = "red4") +
-    facet_wrap(~localidade) +
+    facet_wrap(~ra_fator) +
     theme_bw() +
     labs(x = "Semana", y = "Óbitos por 100 mil habitantes por semana", fill = "Data")+
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
