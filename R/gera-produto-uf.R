@@ -16,7 +16,7 @@ gera_produto_uf <- function(dados, produto_dt = FALSE){
 
   dados_uf = limpa_min_saude(dados, produto_dt = produto_dt)
 
-  dados_capitais = limpa_capitais(dados, pproduto_dt = produto_dt)
+  dados_capitais = limpa_capitais(dados, produto_dt = produto_dt)
 
   dados_mortal_letal = limpa_mortalidade_letalidade(dados, produto_dt = produto_dt)
 

@@ -12,9 +12,9 @@
 #'
 #' @export
 
-
 gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", produto_dt = FALSE){
-  dados_cadastro = checa_transforma_dt(dados_cadastro)
+
+  dados = checa_transforma_dt(dados_cadastro)
 
   data = data.table(data = seq(as.Date(data_inicio), max(dados$data), by = "day"))
 
@@ -30,6 +30,8 @@ gera_cadastro_semana <- function(dados_cadastro, data_inicio = "2020-01-01", pro
   dados = dados[dias_semana == 7, ]
 
   dados[as.data.table(pop_ra), on = .(localidade = ra), pop := pop]
+
+  dados[as.data.table(pop_ra), on = .(localidade = ra), ra_fator := ra_fator]
 
   dados[, `:=`(casos_100k = 100000 * casos / pop,
                obitos_100k = 100000 * obitos / pop)]

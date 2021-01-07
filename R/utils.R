@@ -33,10 +33,9 @@ retorna_dt_df <- function(dados, produto_dt){
 #' @examples
 #' transforma_dt(capitais)
 
-
 checa_transforma_dt <- function(dados){
-  if (is.data.table(dados)){
-    dados_uf = as.data.table(dados)
+  if (!is.data.table(dados)){
+    dados = as.data.table(dados)
   }
   dados
 }

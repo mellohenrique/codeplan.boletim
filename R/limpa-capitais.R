@@ -24,5 +24,5 @@ limpa_capitais <- function(dados, produto_dt = FALSE){
 
   dados_finais = dados_capitais[data == max(data), .(data, estado, municipio, casosAcumulado, obitosAcumulado, populacaoTCU2019, mortalidade, letalidade)]
 
-  retorna_dt_df(dados_finais, produto_dt)
+  retorna_dt_df(dados_finais, produto_dt = produto_dt)
 }
