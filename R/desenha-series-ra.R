@@ -23,7 +23,7 @@ desenha_series_ra <- function(dados){
 
   dados = dados[!is.na(ra_fator),]
 
-  lista[[1]] = ggplot(dados, aes(x = data, y = casos)) +
+  lista[[1]] = ggplot(dados, aes(x = data_max, y = casos)) +
     geom_col(fill = "darkblue") +
     facet_wrap(~ra_fator) +
     theme_bw() +
@@ -31,7 +31,7 @@ desenha_series_ra <- function(dados){
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-  lista[[2]] =ggplot(dados, aes(x = data, y = obitos)) +
+  lista[[2]] =ggplot(dados, aes(x = data_max, y = obitos)) +
     geom_col(fill = "red4") +
     facet_wrap(~ra_fator) +
     theme_bw() +
@@ -39,7 +39,7 @@ desenha_series_ra <- function(dados){
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-  lista[[3]] =ggplot(dados[!is.na(pop),], aes(x = data, y = casos_100k)) +
+  lista[[3]] =ggplot(dados[!is.na(pop),], aes(x = data_max, y = casos_100k)) +
     geom_col(fill = "darkblue") +
     facet_wrap(~ra_fator) +
     theme_bw() +
@@ -47,7 +47,7 @@ desenha_series_ra <- function(dados){
     scale_x_date(date_labels = "%B", date_breaks = "2 months") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-  lista[[4]] = ggplot(dados[!is.na(pop),], aes(x = data, y = obitos_100k)) +
+  lista[[4]] = ggplot(dados[!is.na(pop),], aes(x = data_max, y = obitos_100k)) +
     geom_col(fill = "red4") +
     facet_wrap(~ra_fator) +
     theme_bw() +

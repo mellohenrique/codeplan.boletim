@@ -1,7 +1,7 @@
 Package: codeplan.boletim
 Type: Package
 Title: Gerador dos dados do Boletim da Codeplan
-Version: 1.18
+Version: 1.19
 Author: c(
   c("Henrique", "de Mello de Santos de Assunção", role = c("aut", "cre"), email = "henrique.mello1992@gmail.com"),
   c("Fernando", "da Silva", role = c("ctb"), email = "fernando.schoulten@hotmail.com")))
