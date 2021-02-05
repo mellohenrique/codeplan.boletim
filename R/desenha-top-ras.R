@@ -18,6 +18,8 @@
 desenha_top_ras <- function(dados_top){
   dados_top = checa_transforma_dt(dados_top)
 
+  dados_top[, data := factor(epiweek, labels = unique(paste(format(data_min, "%d/%m/%Y"), format(data_max, "%d/%m/%Y"), sep = " até\n")))]
+
   top_casos_graf = dados_top[top_casos &
                                epiweek %in% (max(epiweek) - 3):max(epiweek),]
   top_obitos_graf = dados_top[top_obitos &
@@ -56,18 +58,16 @@ desenha_top_ras <- function(dados_top){
     geom_col(fill = "darkblue") +
     geom_label(aes(label = casos, y = casos + 50))  +
     facet_wrap(~localidade_fator, dir = "h") +
-    theme_bw() +
+    theme_bw(base_size = 12) +
     labs(x = "Semana", y = "Casos por semana", title = "", fill = "Data") +
-    scale_x_date(date_labels = "%B", date_breaks = "2 months") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
   graficos[[2]] = ggplot(top_obitos_graf,aes(x = data, y = obitos)) +
     geom_col(fill = "red4") +
     geom_label(aes(label = obitos, y = obitos + 0.8))  +
     facet_wrap(~localidade_fator, dir = "h") +
-    theme_bw() +
+    theme_bw(base_size = 12) +
     labs(x = "Semana", y = "Casos por semana", title = "", fill = "Data") +
-    scale_x_date(date_labels = "%B", date_breaks = "2 months") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
   names(graficos) <- c("top-casos", "top-obitos")
